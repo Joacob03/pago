@@ -2,64 +2,138 @@
 <html lang="es-MX">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f5f8fc">
-<meta name="description" content="Datos bancarios para transferir a Los Mezquites. Copia la CLABE en un toque.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6F8FB">
+<meta name="description" content="Los Mezquites: datos de transferencia BBVA y envío del comprobante por WhatsApp.">
 <title>Transferencia bancaria | Los Mezquites</title>
 <style>
-:root{color-scheme:light;--navy:#072f60;--blue:#0758a8;--ink:#14283f;--muted:#64748b;--line:#e6edf6;--bg:#f5f8fc}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}body{margin:0;min-height:100vh;min-height:100dvh;background:var(--bg);color:var(--ink)}
-main{min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:clamp(16px,4vw,38px)}
-.card{width:min(100%,440px);background:#fff;border:1px solid #e5edf6;border-radius:23px;overflow:hidden;box-shadow:0 15px 45px rgba(9,52,100,.07)}
-.header{padding:26px 24px 23px;background:linear-gradient(135deg,#063e7e,#0664b6);color:#fff}
-.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#cfe9ff}
-h1{font-size:clamp(26px,6.5vw,32px);letter-spacing:-.04em;line-height:1.13;margin:9px 0 8px}
-.header p{margin:0;color:#dfefff;font-size:15px}
-.content{padding:24px}
-.bank{display:flex;gap:10px;align-items:center;margin:0 0 20px;font-weight:750;color:var(--navy)}
-.bank-mark{width:37px;height:37px;display:grid;place-items:center;border-radius:11px;background:#e9f4ff;font-weight:850;color:#0758a8}
-.field{padding:15px 0;border-top:1px solid var(--line)}
-.field-name{font-size:12px;color:var(--muted);font-weight:650;letter-spacing:.02em;margin-bottom:7px}
-.field-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.value{font-size:17px;line-height:1.35;font-weight:700;overflow-wrap:anywhere;font-variant-numeric:tabular-nums;user-select:all;-webkit-user-select:all}
-.clabe .value{font-size:clamp(17px,4.6vw,22px);color:var(--navy);letter-spacing:.015em}
-.copy{flex:none;appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:5px;min-width:82px;min-height:42px;padding:10px 11px;border:1px solid #d6e5f6;border-radius:11px;color:#0758a8;background:#f2f8fe;font:700 13px inherit;cursor:pointer;touch-action:manipulation}
-.copy:focus-visible{outline:3px solid #85c9ff;outline-offset:2px}.copy:hover{background:#e7f3fd}
-.copy svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.note{font-size:12px;color:var(--muted);line-height:1.5;margin:18px 0 0;text-align:center}
-.footer{padding:14px 24px;border-top:1px solid var(--line);font-size:12px;color:#63758a;text-align:center}
-.toast{position:fixed;bottom:max(20px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:#102c4c;color:white;border-radius:12px;padding:12px 20px;font-weight:700;font-size:14px;box-shadow:0 12px 30px #102c4c22;max-width:90%;text-align:center}
-.toast[hidden]{display:none}
-@media(max-width:375px){main{padding:10px}.header{padding:22px 19px}.content{padding:18px}.field-row{gap:5px}.copy{min-width:76px}.clabe .value{font-size:16px}}
-@media(prefers-reduced-motion:no-preference){.copy{transition:background .15s,transform .15s}.copy:active{transform:scale(.97)}}
+:root{color-scheme:light;--blue:#0755A3;--blue-dark:#103C72;--blue-soft:#EFF6FF;--green:#16834D;--green-dark:#12683E;--green-soft:#F0FAF4;--ink:#192D42;--muted:#66768A;--border:#E4EAF1;--bg:#F6F8FB}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);min-height:100vh;min-height:100dvh}
+.page{max-width:480px;margin:auto;padding:28px 16px max(30px,env(safe-area-inset-bottom))}
+.site-head{text-align:center;margin-bottom:26px}
+.brand{margin:0;color:#102D4A;font-size:clamp(25px,6.7vw,31px);line-height:1.14;font-weight:800;letter-spacing:.045em}
+.subheading{margin:8px 0 0;font-size:15px;color:var(--muted)}
+.steps{display:grid;gap:18px}
+.step{background:#fff;border:1px solid var(--border);border-radius:21px;overflow:hidden;box-shadow:0 8px 32px rgba(30,60,92,.045)}
+.step-head{display:flex;align-items:center;gap:12px;padding:20px 20px 18px}
+.step-one .step-head{background:var(--blue-soft)}
+.step-two .step-head{background:var(--green-soft)}
+.number{display:grid;place-items:center;flex:0 0 37px;height:37px;border-radius:12px;color:#fff;font-size:17px;font-weight:750}
+.step-one .number{background:var(--blue)}
+.step-two .number{background:var(--green)}
+.step-label{font-size:11px;font-weight:800;letter-spacing:.10em}
+.step-one .step-label{color:var(--blue)}
+.step-two .step-label{color:var(--green)}
+.step-title{font-size:17px;line-height:1.3;font-weight:750;margin:2px 0 0}
+.step-body{padding:4px 20px 20px}
+.detail{padding:15px 0;border-bottom:1px solid var(--border)}
+.detail:last-child{border-bottom:0;padding-bottom:0}
+.field-label{display:block;color:var(--muted);font-size:12px;font-weight:650;margin:0 0 6px}
+.field-value{display:block;font-size:17px;line-height:1.35;font-weight:750;overflow-wrap:anywhere;font-variant-numeric:tabular-nums;-webkit-user-select:all;user-select:all}
+.bank-value{display:flex;align-items:center;gap:9px;font-size:18px;color:var(--blue-dark)}
+.bank-icon{width:35px;height:35px;display:grid;place-items:center;background:#E9F2FF;color:var(--blue);border-radius:9px;font-size:12px;font-weight:850}
+.clabe-value{font-size:clamp(18px,5.3vw,23px);letter-spacing:.025em;color:var(--blue-dark);white-space:nowrap}
+.copy{appearance:none;display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:45px;margin-top:11px;padding:12px 14px;border:1px solid var(--blue);border-radius:11px;background:var(--blue);color:#fff;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;touch-action:manipulation}
+.copy:hover{background:#064687}
+.copy:focus-visible,.whatsapp:focus-visible{outline:3px solid #8FC7FF;outline-offset:3px}
+.copy[data-copied="true"]{background:var(--blue-dark)}
+.copy svg,.whatsapp svg{height:18px;width:18px;flex:none}
+.step-two .step-body{padding-top:19px}
+.instruction{font-size:14px;line-height:1.55;color:#52667B;margin:0 0 16px}
+.whatsapp{width:100%;min-height:50px;display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 14px;border-radius:12px;border:1px solid var(--green);background:var(--green);color:#fff;font-size:14px;line-height:1.3;font-weight:750;text-decoration:none;text-align:center;touch-action:manipulation}
+.whatsapp:hover{background:var(--green-dark)}
+.after-note{font-size:12px;line-height:1.5;color:#6B7B8B;margin:12px 0 0;text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:360px){.page{padding:20px 10px 26px}.step-head{padding:17px 15px}.step-body{padding-left:15px;padding-right:15px}.clabe-value{font-size:17px}}
+@media(prefers-reduced-motion:no-preference){.copy,.whatsapp{transition:background-color .15s ease}.copy:active,.whatsapp:active{transform:scale(.99)}}
 </style>
 </head>
 <body>
-<main>
-<section class="card" aria-labelledby="heading">
-<header class="header"><div class="eyebrow">Los Mezquites</div><h1 id="heading">Datos para transferencia</h1><p>Copia los datos y transfiere desde tu banco.</p></header>
-<div class="content">
-<div class="bank"><span class="bank-mark" aria-hidden="true">B</span><span>BBVA México</span></div>
-<div class="field clabe"><div class="field-name">CLABE interbancaria</div><div class="field-row"><span class="value" id="clabe">012 225 004929940625</span><button type="button" class="copy" data-copy="clabe" aria-label="Copiar CLABE interbancaria"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>Copiar</button></div></div>
-<div class="field"><div class="field-name">Nombre del beneficiario</div><div class="field-row"><span class="value" id="titular">JOAQUIN BORJA</span><button type="button" class="copy" data-copy="titular" aria-label="Copiar beneficiario"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>Copiar</button></div></div>
-<div class="field"><div class="field-name">Número de cuenta BBVA</div><div class="field-row"><span class="value" id="cuenta">0492994062</span><button type="button" class="copy" data-copy="cuenta" aria-label="Copiar número de cuenta"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>Copiar</button></div></div>
-<div class="field"><div class="field-name">Concepto o referencia</div><div class="field-row"><span class="value">Opcional</span></div></div>
-<p class="note">Verifica que el beneficiario sea JOAQUIN BORJA antes de confirmar tu transferencia.</p>
-</div>
-<footer class="footer">Los Mezquites · Información para transferencias bancarias</footer>
-</section>
+<main class="page">
+  <header class="site-head">
+    <h1 class="brand">LOS MEZQUITES</h1>
+    <p class="subheading">Transferencia bancaria</p>
+  </header>
+  <div class="steps">
+    <section class="step step-one" aria-labelledby="step1-title">
+      <div class="step-head">
+        <span class="number" aria-hidden="true">1</span>
+        <div><div class="step-label">PASO 1</div><h2 class="step-title" id="step1-title">Realiza tu transferencia</h2></div>
+      </div>
+      <div class="step-body">
+        <div class="detail">
+          <span class="field-label">Banco receptor</span>
+          <span class="field-value bank-value"><span class="bank-icon" aria-hidden="true">BBVA</span>BBVA México</span>
+        </div>
+        <div class="detail">
+          <span class="field-label">Nombre del beneficiario</span>
+          <span class="field-value" id="beneficiario">JOAQUIN BORJA</span>
+          <button type="button" class="copy" data-copy="beneficiario" aria-label="Copiar nombre del beneficiario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><span class="button-label">Copiar beneficiario</span></button>
+        </div>
+        <div class="detail">
+          <span class="field-label">CLABE interbancaria</span>
+          <span class="field-value clabe-value" id="clabe">012 225 004929940625</span>
+          <button type="button" class="copy" data-copy="clabe" aria-label="Copiar CLABE interbancaria"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><span class="button-label">Copiar CLABE</span></button>
+        </div>
+        <div class="detail">
+          <span class="field-label">Número de cuenta</span>
+          <span class="field-value" id="cuenta">0492994062</span>
+          <button type="button" class="copy" data-copy="cuenta" aria-label="Copiar número de cuenta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><span class="button-label">Copiar cuenta</span></button>
+        </div>
+      </div>
+    </section>
+    <section class="step step-two" aria-labelledby="step2-title">
+      <div class="step-head">
+        <span class="number" aria-hidden="true">2</span>
+        <div><div class="step-label">PASO 2</div><h2 class="step-title" id="step2-title">Envía tu comprobante</h2></div>
+      </div>
+      <div class="step-body">
+        <p class="instruction">Al terminar tu transferencia, regresa aquí y envíanos el comprobante por WhatsApp.</p>
+        <a class="whatsapp" href="https://wa.me/524623106859?text=Hola%2C%20realic%C3%A9%20una%20transferencia%20a%20Los%20Mezquites.%20Adjunto%20mi%20comprobante%20de%20pago." target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp para enviar comprobante">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.3 11.5a8.3 8.3 0 0 1-12.2 7.3L3 20l1.3-4.9a8.3 8.3 0 1 1 16-3.6Z"/><path d="M8.6 8.5c.3-.4.6-.4.9.1l1.1 1.5-.6.9c.7 1.1 1.7 2 2.9 2.6l.9-.8 1.7 1c.4.3.4.6.1 1-1.1 1.7-3.5.9-5.5-1-1.9-1.8-2.6-4-1.5-5.3Z"/></svg>
+          Enviar comprobante por WhatsApp
+        </a>
+        <p class="after-note">Se abrirá el chat. Adjunta la captura o PDF y pulsa Enviar.</p>
+      </div>
+    </section>
+  </div>
+  <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
 </main>
-<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <script>
 (function(){
-"use strict";
-var values={clabe:"012225004929940625",cuenta:"0492994062",titular:"JOAQUIN BORJA"};
-var toast=document.getElementById("toast");
-var hideTimeout;
-function message(t){toast.textContent=t;toast.hidden=false;clearTimeout(hideTimeout);hideTimeout=setTimeout(function(){toast.hidden=true},2300)}
-function fallbackCopy(text){var el=document.createElement("textarea");el.value=text;el.setAttribute("readonly","");el.style.cssText="position:fixed;top:0;left:0;opacity:0";document.body.appendChild(el);el.focus();el.select();el.setSelectionRange(0,text.length);var ok=false;try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(el);return ok}
-async function copy(text){if(navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(text);return true}catch(e){}}return fallbackCopy(text)}
-document.querySelectorAll("[data-copy]").forEach(function(btn){btn.addEventListener("click",async function(){var key=btn.getAttribute("data-copy");var ok=await copy(values[key]);message(ok?"Copiado al portapapeles":"No se pudo copiar. Mantén presionado el dato para seleccionarlo.")})});
+  "use strict";
+  var values={beneficiario:"JOAQUIN BORJA",clabe:"012225004929940625",cuenta:"0492994062"};
+  var announcements={beneficiario:"Beneficiario copiado",clabe:"CLABE copiada",cuenta:"Cuenta copiada"};
+  var status=document.getElementById("copy-status");
+  var timers=new WeakMap();
+  function fallbackCopy(text){
+    var area=document.createElement("textarea");
+    area.value=text;area.readOnly=true;
+    area.style.cssText="position:fixed;left:-9999px;top:0;opacity:0";
+    document.body.appendChild(area);area.focus();area.select();area.setSelectionRange(0,area.value.length);
+    var ok=false;try{ok=document.execCommand("copy")}catch(err){}
+    area.remove();return ok;
+  }
+  async function copy(text){
+    if(navigator.clipboard&&window.isSecureContext){
+      try{await navigator.clipboard.writeText(text);return true}catch(err){}
+    }
+    return fallbackCopy(text);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".copy"),function(button){
+    var original=button.querySelector(".button-label").textContent;
+    button.addEventListener("click",async function(){
+      var key=button.getAttribute("data-copy"),ok=await copy(values[key]);
+      clearTimeout(timers.get(button));
+      button.querySelector(".button-label").textContent=ok?"¡Copiado!":original;
+      button.dataset.copied=ok?"true":"false";
+      status.textContent=ok?announcements[key]:"No fue posible copiar. Mantén presionado el dato para copiarlo manualmente.";
+      timers.set(button,setTimeout(function(){button.querySelector(".button-label").textContent=original;button.removeAttribute("data-copied")},2400));
+    });
+  });
 })();
 </script>
-</body></html>
+</body>
+</html>
