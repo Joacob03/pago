@@ -16,10 +16,10 @@ html{-webkit-text-size-adjust:100%;font-family:system-ui,-apple-system,BlinkMacS
 body{margin:0;background:#F5F7FA;color:var(--ink)}
 .page{width:min(100%,480px);min-height:100vh;min-height:100dvh;margin:auto;padding:clamp(16px,3.2vh,27px) 15px max(25px,env(safe-area-inset-bottom))}
 .brand{text-align:center;margin:0 0 clamp(19px,3vh,28px)}
-.brand-row{display:flex;align-items:center;justify-content:center;gap:10px}
-.brand-tree{width:76px;height:55px;flex:0 0 76px;object-fit:contain}
+.brand-row{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
+.brand-tree{display:block;width:164px;height:112px;flex:none;object-fit:contain}
 .brand h1{margin:0;font-family:"Libre Baskerville",Georgia,serif;font-size:clamp(20px,5.8vw,27px);font-weight:700;letter-spacing:.008em;line-height:1.2;color:#132D4B}
-@media(max-width:360px){.brand-tree{width:60px;height:44px;flex-basis:60px}.brand h1{font-size:20px}}
+@media(max-width:360px){.brand-tree{width:146px;height:100px}.brand h1{font-size:23px}}
 .brand p{margin:5px 0 0;font-size:13px;color:var(--muted)}
 .intro{margin:0 0 15px;text-align:center;font-size:13px;color:#65788D}
 .steps{display:grid;gap:12px}
@@ -60,7 +60,7 @@ body{margin:0;background:#F5F7FA;color:var(--ink)}
 </head>
 <body>
 <main class="page">
-<header class="brand"><div class="brand-row"><img class="brand-tree" src="./mezquite-negro.svg?v=2" width="76" height="55" alt="Árbol de mezquite" decoding="async"><h1>LOS MEZQUITES</h1></div><p>Transferencia bancaria</p></header>
+<header class="brand"><div class="brand-row"><img class="brand-tree" src="./mezquite-negro.svg?v=3" width="164" height="112" alt="Árbol de mezquite" decoding="async"><h1>LOS MEZQUITES</h1></div><p>Transferencia bancaria</p></header>
 <p class="intro">Todo lo que necesitas, en tres pasos.</p>
 <div class="steps">
   <details class="step blue" id="paso-1">
