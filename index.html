@@ -20,6 +20,16 @@ body{margin:0;background:var(--bg);color:var(--ink);min-height:100vh;min-height:
 .step-head{display:flex;align-items:center;gap:12px;padding:20px 20px 18px}
 .step-one .step-head{background:var(--blue-soft)}
 .step-two .step-head{background:var(--green-soft)}
+.step-three .step-head{background:#FFF5E4}
+.step-three .number{background:#B87918}
+.step-three .step-label{color:#A3630A}
+.step-three .step-body{padding-top:19px}
+.review-button{width:100%;min-height:50px;display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 14px;border-radius:12px;border:1px solid #B87918;background:#B87918;color:white;font-size:14px;line-height:1.3;font-weight:750;text-decoration:none;text-align:center;touch-action:manipulation}
+.review-button:hover{background:#985F0C}
+.review-button:focus-visible{outline:3px solid #E8C17F;outline-offset:3px}
+.review-button svg{height:18px;width:18px;flex:none}
+.review-extra{font-size:13px;line-height:1.5;color:#6C5F4C;margin:12px 0 0}
+
 .number{display:grid;place-items:center;flex:0 0 37px;height:37px;border-radius:12px;color:#fff;font-size:17px;font-weight:750}
 .step-one .number{background:var(--blue)}
 .step-two .number{background:var(--green)}
@@ -97,6 +107,21 @@ body{margin:0;background:var(--bg);color:var(--ink);min-height:100vh;min-height:
           Enviar comprobante por WhatsApp
         </a>
         <p class="after-note">Se abrirá el chat. Adjunta la captura o PDF y pulsa Enviar.</p>
+      </div>
+    </section>
+    <section class="step step-three" aria-labelledby="step3-title">
+      <div class="step-head">
+        <span class="number" aria-hidden="true">3</span>
+        <div><div class="step-label">PASO 3 · CORTESÍA</div><h2 class="step-title" id="step3-title">¡Gánate un postre gratis!</h2></div>
+      </div>
+      <div class="step-body">
+        <p class="instruction">Publica una reseña sobre tu experiencia en Los Mezquites en Google. Tu opinión es completamente libre, sea positiva o negativa.</p>
+        <a class="review-button" href="https://share.google/9RLRirDwQVqO6ub3P" target="_blank" rel="noopener noreferrer" aria-label="Abrir Los Mezquites en Google para publicar una reseña">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.5 2.9 5.88 6.49.94-4.7 4.58 1.1 6.47L12 17.32l-5.79 3.05 1.11-6.47-4.7-4.58 6.48-.94L12 2.5Z"/></svg>
+          Publicar mi reseña en Google
+        </a>
+        <p class="review-extra"><strong>¿Ya la publicaste?</strong> Muéstrala en caja o a tu mesera y solicita tu postre de cortesía.</p>
+        <p class="after-note">Si deseas, puedes añadir fotografías de tu visita.</p>
       </div>
     </section>
   </div>
