@@ -33,7 +33,15 @@ body{margin:0;background:#F5F7FA;color:var(--ink)}
 .kicker{color:var(--accent);font-size:10px;letter-spacing:.11em;font-weight:850}
 .summary-title{font-weight:800;line-height:1.2;font-size:16px}
 .summary-hint{font-size:12px;color:#627286;line-height:1.35}
-.gold .summary-hint{color:#8A5A14;font-weight:650}
+.gold .summary-hint{color:#79635C;font-weight:650;font-size:11px;margin-top:2px}
+.gold summary{background:linear-gradient(110deg,#FFF9EF 0%,#FFFFFF 48%,#FFF4FA 100%);min-height:132px}
+.gold .summary-copy{gap:5px}
+.gold .summary-platforms{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px;margin-top:4px}
+.gold .summary-platform{display:flex;justify-content:center;align-items:center;gap:5px;min-height:33px;border-radius:8px;padding:5px 6px;font-size:12px;font-weight:800;white-space:nowrap}
+.gold .summary-platform.instagram{background:#FCEAF5;border:1px solid #F0C5DF;color:#A32B72}
+.gold .summary-platform.google{background:#FFF0D7;border:1px solid #EACB91;color:#996014}
+.gold summary .chevron{color:#96672B}
+@media(max-width:360px){.gold summary{min-height:131px}.gold .summary-platform{font-size:11px;padding:5px 3px;gap:3px}}
 .chevron{flex:none;width:18px;height:18px;color:var(--accent);transition:transform .18s ease}
 .step[open] .chevron{transform:rotate(180deg)}
 .step summary:focus-visible,.copy:focus-visible,.action:focus-visible{outline:3px solid #8FC7FF;outline-offset:-3px}
@@ -103,7 +111,7 @@ body{margin:0;background:#F5F7FA;color:var(--ink)}
     </div>
   </details>
   <details class="step gold" id="paso-3">
-    <summary><span class="number" aria-hidden="true">3</span><span class="summary-copy"><span class="kicker">PASO 3 - CORTESÍA</span><span class="summary-title">¡Gánate un postre GRATIS!</span><span class="summary-hint">Instagram o Google · Tú eliges</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+    <summary><span class="number" aria-hidden="true">3</span><span class="summary-copy"><span class="kicker">PASO 3 - CORTESÍA</span><span class="summary-title">¡Gánate un postre GRATIS!</span><span class="summary-platforms"><span class="summary-platform instagram">◎ Instagram</span><span class="summary-platform google">★ Google</span></span><span class="summary-hint">Elige una opción · Muéstraselo a una mesera</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
     <div class="inner">
       <p class="courtesy-intro">Elige <strong>una de estas dos opciones</strong> para recibir tu postre de cortesía.</p>
       <div class="courtesy-options">
