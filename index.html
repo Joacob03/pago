@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F5F7FA">
+<meta name="page-version" content="selector-permanente-20261110-v2">
 <meta name="description" content="Los Mezquites: pagos, envío de comprobante y cortesía con opciones de Instagram o Google.">
 <title>Pagos y beneficios | Los Mezquites</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,7 +129,7 @@ body{margin:0;background:#F5F7FA;color:var(--ink)}
       <div class="summary-copy">
         <span class="kicker">PASO 3 - CORTESÍA</span>
         <h2 class="summary-title" id="courtesy-title" style="margin:0">¡Gánate un postre GRATIS!</h2>
-        <span class="courtesy-intro-line" id="courtesy-state">Elige Instagram o Google</span>
+        <span class="courtesy-intro-line" id="courtesy-state">Toca una opción para ver las instrucciones</span>
       </div>
     </div>
     <div class="courtesy-picker" id="courtesy-picker" role="group" aria-label="Elige cómo participar">
@@ -187,7 +188,7 @@ function setCourtesy(option){
     button.setAttribute("aria-expanded",String(active));
     button.setAttribute("aria-pressed",String(active));
   });
-  courtesyState.textContent=selected?"Instrucciones de "+(selected==="instagram"?"Instagram":"Google"):"Elige Instagram o Google";
+  courtesyState.textContent=selected?"Instrucciones de "+(selected==="instagram"?"Instagram":"Google"):"Toca una opción para ver las instrucciones";
   if(selected)cards.forEach(function(card){card.open=false});
 }
 courtesyButtons.forEach(function(button){button.addEventListener("click",function(){setCourtesy(button.dataset.courtesy)})});
