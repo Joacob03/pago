@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F5F7FA">
-<meta name="description" content="Los Mezquites: transferencia BBVA, envío de comprobante y reseña en Google.">
+<meta name="description" content="Los Mezquites: pagos, envío de comprobante y cortesía con opciones de Instagram o Google.">
 <title>Pagos y beneficios | Los Mezquites</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,6 +51,27 @@ body{margin:0;background:#F5F7FA;color:var(--ink)}
 .action{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:13px;border-radius:11px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;font-weight:750;touch-action:manipulation}
 .green .action:hover{background:#116E3E}
 .gold .action:hover{background:#8D590F}
+.courtesy-intro{margin:12px 0 15px;text-align:center;color:#53687C;font-size:13px;line-height:1.5}
+.courtesy-options{display:grid;gap:11px}
+.courtesy-choice{border:1px solid;border-radius:14px;padding:15px 14px 14px}
+.courtesy-choice.instagram{background:linear-gradient(130deg,#FFF0F8 0%,#FFF9FD 100%);border-color:#F2C6DE}
+.courtesy-choice.google{background:linear-gradient(130deg,#FFF1DC 0%,#FFF9EF 100%);border-color:#EED5AC}
+.choice-heading{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-weight:800;font-size:15px}
+.choice-symbol{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:9px;color:#fff;font-size:16px;font-weight:800}
+.instagram .choice-symbol{background:#B93683}.google .choice-symbol{background:#B97921}
+.choice-text{margin:0 0 12px;font-size:13px;line-height:1.5;color:#4E6275}
+.choice-text strong{font-weight:800;color:#233B50}
+.choice-link,.choice-pending{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;border-radius:10px;font-size:13px;line-height:1.3;text-align:center;font-weight:800;text-decoration:none}
+.google .choice-link{background:#B97921;color:#fff}.google .choice-link:hover{background:#986014}
+.choice-pending{background:#F4E6EE;color:#8B426B;border:1px dashed #C88CAE}
+.choice-note{margin:8px 1px 0;font-size:11px;color:#7C6580;line-height:1.45}
+.courtesy-or{display:flex;align-items:center;gap:12px;color:#9A7139;font-size:11px;font-weight:850;letter-spacing:.1em;justify-content:center}
+.courtesy-or:before,.courtesy-or:after{content:"";height:1px;background:#E7D9C7;flex:1}
+.courtesy-redeem{display:flex;gap:10px;align-items:flex-start;margin-top:15px;padding:12px;border:1px solid #E9D8B8;border-radius:12px;background:#FFF9EF;color:#845514}
+.courtesy-redeem-icon{flex:none;font-size:21px;line-height:1.2}
+.courtesy-redeem strong{display:block;font-size:13px;margin-bottom:4px}
+.courtesy-redeem p{font-size:12px;line-height:1.5;margin:0;color:#62553E}
+.choice-link:focus-visible{outline:3px solid #8FC7FF;outline-offset:2px}
 .footnote{margin:11px 0 0;font-size:12px;line-height:1.5;color:#66778A}
 .notice{margin:18px 6px 0;text-align:center;color:#79899B;font-size:11px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -81,11 +102,24 @@ body{margin:0;background:#F5F7FA;color:var(--ink)}
     </div>
   </details>
   <details class="step gold" id="paso-3">
-    <summary><span class="number" aria-hidden="true">3</span><span class="summary-copy"><span class="kicker">PASO 3 - CORTESÍA</span><span class="summary-title">¡Gánate un postre GRATIS!</span><span class="summary-hint">Reseña en Google = postre gratis</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+    <summary><span class="number" aria-hidden="true">3</span><span class="summary-copy"><span class="kicker">PASO 3 - CORTESÍA</span><span class="summary-title">¡Gánate un postre GRATIS!</span><span class="summary-hint">Instagram o Google · Tú eliges</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
     <div class="inner">
-      <p class="body-text">Publica una reseña sobre tu experiencia en Los Mezquites en Google. Valoramos mucho tu retroalimentación.</p>
-      <a class="action" href="https://share.google/9RLRirDwQVqO6ub3P" target="_blank" rel="noopener noreferrer">Publicar mi reseña en Google</a>
-      <p class="footnote"><strong>¿Ya la publicaste?</strong> Muéstrala en caja o a tu mesera y elige gratis cualquiera de los postres que tengamos disponibles. Si lo deseas, puedes añadir fotografías.</p>
+      <p class="courtesy-intro">Elige <strong>una de estas dos opciones</strong> para recibir tu postre de cortesía.</p>
+      <div class="courtesy-options">
+        <section class="courtesy-choice instagram" aria-labelledby="cortesia-instagram">
+          <h2 class="choice-heading" id="cortesia-instagram"><span class="choice-symbol" aria-hidden="true">◎</span> Instagram</h2>
+          <p class="choice-text"><strong>1.</strong> Sigue la cuenta oficial de Los Mezquites.<br><strong>2.</strong> Haz <strong>Repost</strong> de cualquiera de nuestras publicaciones o Reels usando la función Repost de Instagram. No hace falta subir historias ni crear contenido propio.</p>
+          <span class="choice-pending">Enlace al perfil: pendiente</span>
+          <p class="choice-note">Pronto agregaremos el enlace directo a nuestro Instagram.</p>
+        </section>
+        <div class="courtesy-or" aria-hidden="true">O BIEN</div>
+        <section class="courtesy-choice google" aria-labelledby="cortesia-google">
+          <h2 class="choice-heading" id="cortesia-google"><span class="choice-symbol" aria-hidden="true">★</span> Reseña en Google</h2>
+          <p class="choice-text">Comparte una reseña sobre tu experiencia en Los Mezquites. <strong>Valoramos mucho tu opinión.</strong></p>
+          <a class="choice-link" href="https://share.google/9RLRirDwQVqO6ub3P" target="_blank" rel="noopener noreferrer">Ir a Google</a>
+        </section>
+      </div>
+      <div class="courtesy-redeem"><span class="courtesy-redeem-icon" aria-hidden="true">🎁</span><div><strong>¡Disfruta tu postre gratis!</strong><p>Muestra a una mesera que completaste <strong>una de las dos opciones</strong> y elige cualquiera de nuestros postres disponibles.</p></div></div>
     </div>
   </details>
 </div>
