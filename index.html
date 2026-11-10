@@ -33,14 +33,7 @@ body{margin:0;background:#F5F7FA;color:var(--ink)}
 .kicker{color:var(--accent);font-size:10px;letter-spacing:.11em;font-weight:850}
 .summary-title{font-weight:800;line-height:1.2;font-size:16px}
 .summary-hint{font-size:12px;color:#627286;line-height:1.35}
-.gold .summary-hint{color:#79635C;font-weight:650;font-size:11px;margin-top:2px}
-.gold summary{background:linear-gradient(110deg,#FFF9EF 0%,#FFFFFF 48%,#FFF4FA 100%);min-height:132px}
-.gold .summary-copy{gap:5px}
-.gold .summary-platforms{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px;margin-top:4px}
-.gold .summary-platform{display:flex;justify-content:center;align-items:center;gap:5px;min-height:33px;border-radius:8px;padding:5px 6px;font-size:12px;font-weight:800;white-space:nowrap}
-.gold .summary-platform.instagram{background:#FCEAF5;border:1px solid #F0C5DF;color:#A32B72}
-.gold .summary-platform.google{background:#FFF0D7;border:1px solid #EACB91;color:#996014}
-.gold summary .chevron{color:#96672B}
+.chevron{color:#96672B}
 @media(max-width:360px){.gold summary{min-height:131px}.gold .summary-platform{font-size:11px;padding:5px 3px;gap:3px}}
 .chevron{flex:none;width:18px;height:18px;color:var(--accent);transition:transform .18s ease}
 .step[open] .chevron{transform:rotate(180deg)}
@@ -59,28 +52,45 @@ body{margin:0;background:#F5F7FA;color:var(--ink)}
 .action{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:13px;border-radius:11px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;font-weight:750;touch-action:manipulation}
 .green .action:hover{background:#116E3E}
 .gold .action:hover{background:#8D590F}
-.courtesy-intro{margin:12px 0 15px;text-align:center;color:#53687C;font-size:13px;line-height:1.5}
-.courtesy-options{display:grid;gap:11px}
-.courtesy-choice{border:1px solid;border-radius:14px;padding:15px 14px 14px}
-.courtesy-choice.instagram{background:linear-gradient(130deg,#FFF0F8 0%,#FFF9FD 100%);border-color:#F2C6DE}
-.courtesy-choice.google{background:linear-gradient(130deg,#FFF1DC 0%,#FFF9EF 100%);border-color:#EED5AC}
-.choice-heading{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-weight:800;font-size:15px}
-.choice-symbol{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:9px;color:#fff;font-size:16px;font-weight:800}
-.instagram .choice-symbol{background:#B93683}.google .choice-symbol{background:#B97921}
-.choice-text{margin:0 0 12px;font-size:13px;line-height:1.5;color:#4E6275}
-.choice-text strong{font-weight:800;color:#233B50}
-.choice-link,.choice-pending{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;border-radius:10px;font-size:13px;line-height:1.3;text-align:center;font-weight:800;text-decoration:none}
-.instagram .choice-link{background:#B93683;color:#fff}.instagram .choice-link:hover{background:#9C246C}
-.google .choice-link{background:#B97921;color:#fff}.google .choice-link:hover{background:#986014}
-.choice-pending{background:#F4E6EE;color:#8B426B;border:1px dashed #C88CAE}
-.choice-note{margin:8px 1px 0;font-size:11px;color:#7C6580;line-height:1.45}
-.courtesy-or{display:flex;align-items:center;gap:12px;color:#9A7139;font-size:11px;font-weight:850;letter-spacing:.1em;justify-content:center}
-.courtesy-or:before,.courtesy-or:after{content:"";height:1px;background:#E7D9C7;flex:1}
-.courtesy-redeem{display:flex;gap:10px;align-items:flex-start;margin-top:15px;padding:12px;border:1px solid #E9D8B8;border-radius:12px;background:#FFF9EF;color:#845514}
-.courtesy-redeem-icon{flex:none;font-size:21px;line-height:1.2}
-.courtesy-redeem strong{display:block;font-size:13px;margin-bottom:4px}
-.courtesy-redeem p{font-size:12px;line-height:1.5;margin:0;color:#62553E}
-.choice-link:focus-visible{outline:3px solid #8FC7FF;outline-offset:2px}
+/* Paso 3: selección inmediata y una sola opción visible */
+[hidden]{display:none!important}
+.courtesy-step{background:linear-gradient(125deg,#FFFCF7,#FFFFFF 70%);border-color:#E9E0D5}
+.courtesy-header{display:flex;align-items:center;gap:12px;padding:15px 15px 11px;background:linear-gradient(108deg,#FFF9EF,#FFFFFF 65%,#FFF5FA)}
+.courtesy-header .number{background:#A86B12}
+.courtesy-header .summary-copy{gap:4px}
+.courtesy-intro-line{font-size:11px;line-height:1.4;color:#826A4C;margin-top:2px}
+.courtesy-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:3px 15px 15px}
+.courtesy-selector{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:0;min-height:70px;padding:10px 7px;border:1px solid;border-radius:12px;cursor:pointer;font-family:inherit;text-align:center;touch-action:manipulation;transition:box-shadow .15s,transform .15s}
+.courtesy-selector:active{transform:scale(.985)}
+.courtesy-selector .select-name{display:flex;align-items:center;justify-content:center;gap:7px;font-size:14px;font-weight:850;line-height:1.25}
+.courtesy-selector .select-name svg{height:19px;width:19px;flex:none}
+.courtesy-selector .select-description{font-size:10.5px;line-height:1.25;font-weight:650}
+.courtesy-selector.instagram{color:#A72A73;border-color:#EAC1D9;background:linear-gradient(145deg,#FBE8F4,#FFF5FB)}
+.courtesy-selector.google{color:#936015;border-color:#EACB95;background:linear-gradient(145deg,#FFF0D5,#FFF7E9)}
+.courtesy-selector.instagram:hover{box-shadow:0 3px 13px rgba(166,42,115,.12)}
+.courtesy-selector.google:hover{box-shadow:0 3px 13px rgba(147,96,21,.12)}
+.courtesy-detail{padding:14px 16px 16px;border-top:1px solid #F0E5D9}
+.courtesy-detail.instagram{background:linear-gradient(180deg,#FFF6FB 0%,#FFFFFF 68%)}
+.courtesy-detail.google{background:linear-gradient(180deg,#FFF9ED 0%,#FFFFFF 68%)}
+.courtesy-detail-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:13px}
+.courtesy-detail-head h3{display:flex;gap:7px;align-items:center;margin:0;font-size:15px;font-weight:850}
+.courtesy-detail.instagram h3{color:#A72A73}
+.courtesy-detail.google h3{color:#936015}
+.courtesy-change{border:0;background:transparent;padding:6px 0 6px 6px;font-family:inherit;font-size:12px;font-weight:700;color:#637589;text-decoration:underline;cursor:pointer;white-space:nowrap}
+.courtesy-instructions{display:grid;gap:12px;list-style:none;margin:0 0 13px;padding:0}
+.courtesy-instructions li{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5;color:#475B6C}
+.courtesy-instructions li b{color:#1E354C}
+.courtesy-instructions .instruction-number{display:grid;place-items:center;flex:0 0 24px;width:24px;height:24px;border-radius:8px;background:#F4E8ED;color:#9F3278;font-size:12px;font-weight:850;line-height:1}
+.courtesy-detail.google .instruction-number{background:#F7E8CF;color:#94601A}
+.courtesy-instruction-note{margin:0 0 13px;font-size:11px;line-height:1.5;color:#6F7C8C}
+.courtesy-action{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:10px;padding:11px 12px;font-size:14px;font-weight:800;text-decoration:none;text-align:center;touch-action:manipulation}
+.courtesy-detail.instagram .courtesy-action{background:#AC2D7C;color:#fff}
+.courtesy-detail.google .courtesy-action{background:#A96A19;color:#fff}
+.courtesy-finish{margin-top:13px;border:1px solid #EAE3D8;border-radius:11px;padding:11px 12px;background:#FFFDFA}
+.courtesy-finish strong{display:block;font-size:13px;color:#815B23;margin-bottom:3px}
+.courtesy-finish p{font-size:12px;line-height:1.5;color:#5A6470;margin:0}
+.courtesy-selector:focus-visible,.courtesy-change:focus-visible,.courtesy-action:focus-visible{outline:3px solid #8FC7FF;outline-offset:2px}
+@media(max-width:360px){.courtesy-header{gap:9px;padding:13px 12px 10px}.courtesy-picker{padding:2px 12px 13px;gap:8px}.courtesy-selector{padding:8px 5px}.courtesy-selector .select-name{font-size:12px;gap:4px}.courtesy-selector .select-name svg{width:17px;height:17px}.courtesy-selector .select-description{font-size:10px}.courtesy-detail{padding:13px 13px 15px}}
 .footnote{margin:11px 0 0;font-size:12px;line-height:1.5;color:#66778A}
 .notice{margin:18px 6px 0;text-align:center;color:#79899B;font-size:11px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -110,27 +120,46 @@ body{margin:0;background:#F5F7FA;color:var(--ink)}
       <p class="footnote">Adjunta tu captura o PDF en el chat y pulsa Enviar.</p>
     </div>
   </details>
-  <details class="step gold" id="paso-3">
-    <summary><span class="number" aria-hidden="true">3</span><span class="summary-copy"><span class="kicker">PASO 3 - CORTESÍA</span><span class="summary-title">¡Gánate un postre GRATIS!</span><span class="summary-platforms"><span class="summary-platform instagram">◎ Instagram</span><span class="summary-platform google">★ Google</span></span><span class="summary-hint">Elige una opción · Muéstraselo a una mesera</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-    <div class="inner">
-      <p class="courtesy-intro">Elige <strong>una de estas dos opciones</strong> para recibir tu postre de cortesía.</p>
-      <div class="courtesy-options">
-        <section class="courtesy-choice instagram" aria-labelledby="cortesia-instagram">
-          <h2 class="choice-heading" id="cortesia-instagram"><span class="choice-symbol" aria-hidden="true">◎</span> Instagram</h2>
-          <p class="choice-text"><strong>1.</strong> Sigue la cuenta oficial de Los Mezquites.<br><strong>2.</strong> Haz <strong>Repost</strong> de cualquiera de nuestras publicaciones o Reels usando la función Repost de Instagram. No hace falta subir historias ni crear contenido propio.</p>
-          <a class="choice-link" href="https://www.instagram.com/losmezquitesss/" target="_blank" rel="noopener noreferrer">Ir a nuestro Instagram · @losmezquitesss</a>
-          <p class="choice-note">Sigue la cuenta y utiliza la función Repost en una de nuestras publicaciones o Reels.</p>
-        </section>
-        <div class="courtesy-or" aria-hidden="true">O BIEN</div>
-        <section class="courtesy-choice google" aria-labelledby="cortesia-google">
-          <h2 class="choice-heading" id="cortesia-google"><span class="choice-symbol" aria-hidden="true">★</span> Reseña en Google</h2>
-          <p class="choice-text">Comparte una reseña sobre tu experiencia en Los Mezquites. <strong>Valoramos mucho tu opinión.</strong></p>
-          <a class="choice-link" href="https://share.google/9RLRirDwQVqO6ub3P" target="_blank" rel="noopener noreferrer">Ir a Google</a>
-        </section>
+  <section class="step gold courtesy-step" id="paso-3" aria-labelledby="courtesy-title">
+    <div class="courtesy-header">
+      <span class="number" aria-hidden="true">3</span>
+      <div class="summary-copy">
+        <span class="kicker">PASO 3 - CORTESÍA</span>
+        <h2 class="summary-title" id="courtesy-title" style="margin:0">¡Gánate un postre GRATIS!</h2>
+        <span class="courtesy-intro-line" id="courtesy-state">Elige Instagram o Google</span>
       </div>
-      <div class="courtesy-redeem"><span class="courtesy-redeem-icon" aria-hidden="true">🎁</span><div><strong>¡Disfruta tu postre gratis!</strong><p>Muestra a una mesera que completaste <strong>una de las dos opciones</strong> y elige cualquiera de nuestros postres disponibles.</p></div></div>
     </div>
-  </details>
+    <div class="courtesy-picker" id="courtesy-picker" role="group" aria-label="Elige cómo participar">
+      <button class="courtesy-selector instagram" type="button" data-courtesy="instagram" aria-controls="courtesy-instagram" aria-expanded="false">
+        <span class="select-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".85" fill="currentColor" stroke="none"/></svg> Instagram</span>
+        <span class="select-description">Seguir + Repost</span>
+      </button>
+      <button class="courtesy-selector google" type="button" data-courtesy="google" aria-controls="courtesy-google" aria-expanded="false">
+        <span class="select-name"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.8 5.7 6.3.9-4.55 4.43 1.08 6.27L12 16.84l-5.63 2.96 1.08-6.27L2.9 9.1l6.3-.9L12 2.5Z"/></svg> Google</span>
+        <span class="select-description">Escribir reseña</span>
+      </button>
+    </div>
+    <section class="courtesy-detail instagram" id="courtesy-instagram" aria-labelledby="instagram-heading" hidden>
+      <div class="courtesy-detail-head"><h3 id="instagram-heading" tabindex="-1">Instagram</h3><button type="button" class="courtesy-change">Cambiar opción</button></div>
+      <ol class="courtesy-instructions">
+        <li><span class="instruction-number" aria-hidden="true">1</span><span>Sigue a <b>@losmezquitesss</b> en Instagram.</span></li>
+        <li><span class="instruction-number" aria-hidden="true">2</span><span>Haz <b>Repost</b> de cualquier publicación o Reel nuestro.</span></li>
+      </ol>
+      <p class="courtesy-instruction-note">Utiliza el botón «Repost». No necesitas subir historias ni crear publicaciones.</p>
+      <a class="courtesy-action" href="https://www.instagram.com/losmezquitesss/" target="_blank" rel="noopener noreferrer">Abrir Instagram ↗</a>
+      <div class="courtesy-finish"><strong>🎁 Reclama tu postre gratis</strong><p>Muestra a una mesera que nos sigues y tu Repost. Elige cualquiera de los postres disponibles.</p></div>
+    </section>
+    <section class="courtesy-detail google" id="courtesy-google" aria-labelledby="google-heading" hidden>
+      <div class="courtesy-detail-head"><h3 id="google-heading" tabindex="-1">Google</h3><button type="button" class="courtesy-change">Cambiar opción</button></div>
+      <ol class="courtesy-instructions">
+        <li><span class="instruction-number" aria-hidden="true">1</span><span>Abre nuestro perfil en <b>Google</b>.</span></li>
+        <li><span class="instruction-number" aria-hidden="true">2</span><span>Escribe y publica una <b>reseña</b> de tu experiencia.</span></li>
+      </ol>
+      <p class="courtesy-instruction-note">Valoramos mucho tu retroalimentación.</p>
+      <a class="courtesy-action" href="https://share.google/9RLRirDwQVqO6ub3P" target="_blank" rel="noopener noreferrer">Abrir Google ↗</a>
+      <div class="courtesy-finish"><strong>🎁 Reclama tu postre gratis</strong><p>Muestra tu reseña a una mesera y elige cualquiera de los postres disponibles.</p></div>
+    </section>
+  </section>
 </div>
 <p class="notice">Abre el paso que necesites. Ninguno es obligatorio para consultar los demás.</p>
 <div class="sr-only" id="copy-status" role="status" aria-live="polite"></div>
@@ -140,8 +169,28 @@ body{margin:0;background:#F5F7FA;color:var(--ink)}
 "use strict";
 var values={beneficiario:"JOAQUIN BORJA",clabe:"012225004929940625",cuenta:"0492994062"};
 var status=document.getElementById("copy-status");
-var cards=document.querySelectorAll(".step");
+var cards=document.querySelectorAll("details.step");
 cards.forEach(function(card){card.addEventListener("toggle",function(){if(card.open){cards.forEach(function(other){if(other!==card)other.open=false})}})});
+var courtesyPicker=document.getElementById("courtesy-picker");
+var courtesyState=document.getElementById("courtesy-state");
+var courtesyPanels={
+  instagram:document.getElementById("courtesy-instagram"),
+  google:document.getElementById("courtesy-google")
+};
+var courtesyButtons=document.querySelectorAll("[data-courtesy]");
+function setCourtesy(option){
+  var selected=option==="instagram"||option==="google"?option:null;
+  courtesyPicker.hidden=!!selected;
+  Object.keys(courtesyPanels).forEach(function(name){courtesyPanels[name].hidden=name!==selected});
+  courtesyButtons.forEach(function(button){button.setAttribute("aria-expanded",String(button.dataset.courtesy===selected))});
+  courtesyState.textContent=selected?"Opción elegida: "+(selected==="instagram"?"Instagram":"Google"):"Elige Instagram o Google";
+  if(selected){
+    cards.forEach(function(card){card.open=false});
+    courtesyPanels[selected].querySelector("h3").focus();
+  }
+}
+courtesyButtons.forEach(function(button){button.addEventListener("click",function(){setCourtesy(button.dataset.courtesy)})});
+document.querySelectorAll(".courtesy-change").forEach(function(button){button.addEventListener("click",function(){setCourtesy(null);courtesyButtons[0].focus()})});
 function fallbackCopy(t){var a=document.createElement("textarea");a.value=t;a.readOnly=true;a.style.cssText="position:fixed;left:-9999px;top:0;opacity:0";document.body.appendChild(a);a.focus();a.select();a.setSelectionRange(0,t.length);var ok=false;try{ok=document.execCommand("copy")}catch(e){}a.remove();return ok}
 async function copy(t){if(navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(t);return true}catch(e){}}return fallbackCopy(t)}
 document.querySelectorAll("[data-copy]").forEach(function(button){var el=button.querySelector("span");var original=el.textContent;var timer;button.addEventListener("click",async function(){var key=button.dataset.copy;var ok=await copy(values[key]);clearTimeout(timer);el.textContent=ok?"¡Copiado!":original;status.textContent=ok?"Dato copiado":"No se pudo copiar. Mantén presionado el dato y cópialo manualmente.";button.dataset.copied=ok?"true":"false";timer=setTimeout(function(){el.textContent=original;button.removeAttribute("data-copied")},2300)})});
