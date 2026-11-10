@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5F7FA">
+<meta name="page-version" content="selector-permanente-20261110-v2">
+<meta name="description" content="Los Mezquites: pagos, envío de comprobante y cortesía con opciones de Instagram o Google.">
+<title>Pagos y beneficios | Los Mezquites</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--ink:#182D43;--muted:#61748A;--blue:#09549D;--green:#14834B;--gold:#A86B12;--line:#E4EAF1}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+body{margin:0;background:#F5F7FA;color:var(--ink)}
+.page{width:min(100%,480px);min-height:100vh;min-height:100dvh;margin:auto;padding:clamp(16px,3.2vh,27px) 15px max(25px,env(safe-area-inset-bottom))}
+.brand{text-align:center;margin:0 0 clamp(19px,3vh,28px)}
+.brand-row{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+.brand-tree{display:block;width:194px;max-width:60vw;height:auto;flex:none;object-fit:contain}
+.brand h1{margin:0;font-family:"Libre Baskerville",Georgia,serif;font-size:clamp(20px,5.8vw,27px);font-weight:700;letter-spacing:.008em;line-height:1.2;color:#132D4B}
+@media(max-width:360px){.brand-tree{width:172px;max-width:60vw;height:auto}.brand h1{font-size:23px}}
+.brand p{margin:5px 0 0;font-size:13px;color:var(--muted)}
+.intro{margin:0 0 15px;text-align:center;font-size:13px;color:#65788D}
+.steps{display:grid;gap:12px}
+.step{background:#fff;border:1px solid var(--line);border-radius:17px;overflow:hidden;box-shadow:0 7px 22px rgba(30,56,80,.045);--accent:var(--blue);--soft:#EEF6FF}
+.step.green{--accent:var(--green);--soft:#EAF8F0}
+.step.gold{--accent:var(--gold);--soft:#FFF5E4}
+.step summary{display:flex;align-items:center;gap:12px;padding:16px 15px;min-height:93px;cursor:pointer;list-style:none;touch-action:manipulation;background:linear-gradient(100deg,var(--soft) 0%,#fff 100%)}
+.step summary::-webkit-details-marker{display:none}
+.number{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border-radius:11px;background:var(--accent);color:#fff;font-weight:800;font-size:17px}
+.summary-copy{flex:1;min-width:0;display:grid;gap:3px}
+.kicker{color:var(--accent);font-size:10px;letter-spacing:.11em;font-weight:850}
+.summary-title{font-weight:800;line-height:1.2;font-size:16px}
+.summary-hint{font-size:12px;color:#627286;line-height:1.35}
+.chevron{color:#96672B}
+@media(max-width:360px){.gold summary{min-height:131px}.gold .summary-platform{font-size:11px;padding:5px 3px;gap:3px}}
+.chevron{flex:none;width:18px;height:18px;color:var(--accent);transition:transform .18s ease}
+.step[open] .chevron{transform:rotate(180deg)}
+.step summary:focus-visible,.copy:focus-visible,.action:focus-visible{outline:3px solid #8FC7FF;outline-offset:-3px}
+.inner{border-top:1px solid var(--line);padding:6px 17px 19px}
+.field{padding:13px 0;border-bottom:1px solid var(--line)}
+.field:last-child{border-bottom:0;padding-bottom:0}
+.field-label{display:block;font-weight:650;font-size:12px;color:var(--muted);margin-bottom:5px}
+.field-value{display:block;font-size:17px;line-height:1.35;font-weight:750;letter-spacing:normal;color:var(--ink);overflow-wrap:anywhere;user-select:all;-webkit-user-select:all}
+#clabe,#cuenta{font-size:18px;font-variant-numeric:normal}
+.bank{font-size:17px;color:#143D6A}
+.copy{width:100%;min-height:42px;margin-top:9px;padding:10px;border:1px solid var(--blue);border-radius:10px;background:var(--blue);color:#fff;font-size:14px;font-weight:750;font-family:inherit;cursor:pointer;touch-action:manipulation}
+.copy:hover{background:#064681}
+.copy[data-copied="true"]{background:#123D70}
+.body-text{margin:11px 0 16px;font-size:14px;line-height:1.5;color:#52677B}
+.action{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:13px;border-radius:11px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;line-height:1.3;font-weight:750;touch-action:manipulation}
+.green .action:hover{background:#116E3E}
+.gold .action:hover{background:#8D590F}
+/* Paso 3: selector siempre visible y contenido exclusivo por plataforma */
+[hidden]{display:none!important}
+.courtesy-step{background:linear-gradient(125deg,#FFFCF7,#FFFFFF 70%);border-color:#E9E0D5}
+.courtesy-header{display:flex;align-items:center;gap:12px;padding:15px 15px 11px;background:linear-gradient(108deg,#FFF9EF,#FFFFFF 65%,#FFF5FA)}
+.courtesy-header .number{background:#A86B12}
+.courtesy-header .summary-copy{gap:4px}
+.courtesy-intro-line{font-size:11px;line-height:1.4;color:#826A4C;margin-top:2px}
+.courtesy-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:3px 15px 15px}
+.courtesy-selector{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:0;min-height:70px;padding:10px 7px;border:1px solid;border-radius:12px;cursor:pointer;font-family:inherit;text-align:center;touch-action:manipulation;transition:box-shadow .15s,transform .15s}
+.courtesy-selector:active{transform:scale(.985)}
+.courtesy-selector .select-name{display:flex;align-items:center;justify-content:center;gap:7px;font-size:14px;font-weight:850;line-height:1.25}
+.courtesy-selector .select-name svg{height:19px;width:19px;flex:none}
+.courtesy-selector .select-description{font-size:10.5px;line-height:1.25;font-weight:650}
+.courtesy-selector.instagram{color:#A72A73;border-color:#EAC1D9;background:linear-gradient(145deg,#FBE8F4,#FFF5FB)}
+.courtesy-selector.google{color:#936015;border-color:#EACB95;background:linear-gradient(145deg,#FFF0D5,#FFF7E9)}
+.courtesy-selector.instagram:hover{box-shadow:0 3px 13px rgba(166,42,115,.12)}
+.courtesy-selector.google:hover{box-shadow:0 3px 13px rgba(147,96,21,.12)}
+.courtesy-selector[aria-pressed="true"]{border-width:2px;box-shadow:0 4px 15px rgba(22,45,65,.10);transform:translateY(-1px)}
+.courtesy-selector.instagram[aria-pressed="true"]{border-color:#AD307C;background:linear-gradient(145deg,#F9D6EB,#FFF0F9)}
+.courtesy-selector.google[aria-pressed="true"]{border-color:#AD7727;background:linear-gradient(145deg,#FFE7BC,#FFF2DA)}
+.courtesy-detail{padding:14px 16px 16px;border-top:1px solid #F0E5D9}
+.courtesy-detail.instagram{background:linear-gradient(180deg,#FFF6FB 0%,#FFFFFF 68%)}
+.courtesy-detail.google{background:linear-gradient(180deg,#FFF9ED 0%,#FFFFFF 68%)}
+.courtesy-detail-head{display:flex;align-items:center;gap:8px;margin-bottom:13px}
+.courtesy-detail-head h3{display:flex;gap:7px;align-items:center;margin:0;font-size:15px;font-weight:850}
+.courtesy-detail.instagram h3{color:#A72A73}
+.courtesy-detail.google h3{color:#936015}
+.courtesy-instructions{display:grid;gap:12px;list-style:none;margin:0 0 13px;padding:0}
+.courtesy-instructions li{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5;color:#475B6C}
+.courtesy-instructions li b{color:#1E354C}
+.courtesy-instructions .instruction-number{display:grid;place-items:center;flex:0 0 24px;width:24px;height:24px;border-radius:8px;background:#F4E8ED;color:#9F3278;font-size:12px;font-weight:850;line-height:1}
+.courtesy-detail.google .instruction-number{background:#F7E8CF;color:#94601A}
+.courtesy-instruction-note{margin:0 0 13px;font-size:11px;line-height:1.5;color:#6F7C8C}
+.courtesy-action{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:10px;padding:11px 12px;font-size:14px;font-weight:800;text-decoration:none;text-align:center;touch-action:manipulation}
+.courtesy-detail.instagram .courtesy-action{background:#AC2D7C;color:#fff}
+.courtesy-detail.google .courtesy-action{background:#A96A19;color:#fff}
+.courtesy-finish{margin-top:13px;border:1px solid #EAE3D8;border-radius:11px;padding:11px 12px;background:#FFFDFA}
+.courtesy-finish strong{display:block;font-size:13px;color:#815B23;margin-bottom:3px}
+.courtesy-finish p{font-size:12px;line-height:1.5;color:#5A6470;margin:0}
+.courtesy-selector:focus-visible,.courtesy-action:focus-visible{outline:3px solid #8FC7FF;outline-offset:2px}
+@media(max-width:360px){.courtesy-header{gap:9px;padding:13px 12px 10px}.courtesy-picker{padding:2px 12px 13px;gap:8px}.courtesy-selector{padding:8px 5px}.courtesy-selector .select-name{font-size:12px;gap:4px}.courtesy-selector .select-name svg{width:17px;height:17px}.courtesy-selector .select-description{font-size:10px}.courtesy-detail{padding:13px 13px 15px}}
+.footnote{margin:11px 0 0;font-size:12px;line-height:1.5;color:#66778A}
+.notice{margin:18px 6px 0;text-align:center;color:#79899B;font-size:11px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:360px){.page{padding-left:10px;padding-right:10px}.step summary{gap:9px;padding:12px;min-height:86px}.summary-title{font-size:15px}.summary-hint{font-size:11px}.number{width:34px;height:34px;flex-basis:34px}#clabe{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.chevron{transition:none}}
+</style>
+</head>
+<body>
+<main class="page">
+<header class="brand"><div class="brand-row"><img class="brand-tree" src="./assets/mezquite-elegante.png?v=1" width="194" height="142" alt="Árbol de mezquite" decoding="async"><h1>LOS MEZQUITES</h1></div><p>Pagos y beneficios</p></header>
+<p class="intro">Todo lo que necesitas, en tres pasos.</p>
+<div class="steps">
+  <details class="step blue" id="paso-1">
+    <summary><span class="number" aria-hidden="true">1</span><span class="summary-copy"><span class="kicker">PASO 1 - PAGO</span><span class="summary-title">Realiza tu transferencia</span><span class="summary-hint">Datos bancarios BBVA · Toca para verlos</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+    <div class="inner">
+      <div class="field"><span class="field-label">Banco receptor</span><span class="field-value bank">BBVA México</span></div>
+      <div class="field"><span class="field-label">Nombre del beneficiario</span><span class="field-value" id="beneficiario">JOAQUIN BORJA</span><button class="copy" type="button" data-copy="beneficiario"><span>Copiar beneficiario</span></button></div>
+      <div class="field"><span class="field-label">CLABE interbancaria</span><span class="field-value" id="clabe">012 225 004929940625</span><button class="copy" type="button" data-copy="clabe"><span>Copiar CLABE</span></button></div>
+      <div class="field"><span class="field-label">Número de cuenta</span><span class="field-value" id="cuenta">0492994062</span><button class="copy" type="button" data-copy="cuenta"><span>Copiar cuenta</span></button></div>
+    </div>
+  </details>
+  <details class="step green" id="paso-2">
+    <summary><span class="number" aria-hidden="true">2</span><span class="summary-copy"><span class="kicker">PASO 2 - WHATSAPP</span><span class="summary-title">Envía tu comprobante</span><span class="summary-hint">WhatsApp · Envía captura o PDF</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+    <div class="inner">
+      <p class="body-text">Cuando termines tu transferencia, vuelve aquí y abre nuestro WhatsApp para enviarnos el comprobante.</p>
+      <a class="action" href="https://wa.me/524623106859?text=Hola%2C%20realic%C3%A9%20una%20transferencia%20a%20Los%20Mezquites.%20Adjunto%20mi%20comprobante%20de%20pago." target="_blank" rel="noopener noreferrer">Enviar comprobante por WhatsApp</a>
+      <p class="footnote">Adjunta tu captura o PDF en el chat y pulsa Enviar.</p>
+    </div>
+  </details>
+  <section class="step gold courtesy-step" id="paso-3" aria-labelledby="courtesy-title">
+    <div class="courtesy-header">
+      <span class="number" aria-hidden="true">3</span>
+      <div class="summary-copy">
+        <span class="kicker">PASO 3 - CORTESÍA</span>
+        <h2 class="summary-title" id="courtesy-title" style="margin:0">¡Gánate un postre GRATIS!</h2>
+        <span class="courtesy-intro-line" id="courtesy-state">Toca una opción para ver las instrucciones</span>
+      </div>
+    </div>
+    <div class="courtesy-picker" id="courtesy-picker" role="group" aria-label="Elige cómo participar">
+      <button class="courtesy-selector instagram" type="button" data-courtesy="instagram" aria-controls="courtesy-instagram" aria-expanded="false" aria-pressed="false">
+        <span class="select-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".85" fill="currentColor" stroke="none"/></svg> Instagram</span>
+        <span class="select-description">Seguir + Repost</span>
+      </button>
+      <button class="courtesy-selector google" type="button" data-courtesy="google" aria-controls="courtesy-google" aria-expanded="false" aria-pressed="false">
+        <span class="select-name"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.8 5.7 6.3.9-4.55 4.43 1.08 6.27L12 16.84l-5.63 2.96 1.08-6.27L2.9 9.1l6.3-.9L12 2.5Z"/></svg> Google</span>
+        <span class="select-description">Escribir reseña</span>
+      </button>
+    </div>
+    <section class="courtesy-detail instagram" id="courtesy-instagram" aria-labelledby="instagram-heading" hidden>
+      <div class="courtesy-detail-head"><h3 id="instagram-heading">Instagram</h3></div>
+      <ol class="courtesy-instructions">
+        <li><span class="instruction-number" aria-hidden="true">1</span><span>Sigue a <b>@losmezquitesss</b> en Instagram.</span></li>
+        <li><span class="instruction-number" aria-hidden="true">2</span><span>Haz <b>Repost</b> de cualquier publicación o Reel nuestro.</span></li>
+      </ol>
+      <p class="courtesy-instruction-note">Utiliza el botón «Repost». No necesitas subir historias ni crear publicaciones.</p>
+      <a class="courtesy-action" href="https://www.instagram.com/losmezquitesss/" target="_blank" rel="noopener noreferrer">Abrir Instagram ↗</a>
+      <div class="courtesy-finish"><strong>🎁 Reclama tu postre gratis</strong><p>Muestra a una mesera que nos sigues y tu Repost. Elige cualquiera de los postres disponibles.</p></div>
+    </section>
+    <section class="courtesy-detail google" id="courtesy-google" aria-labelledby="google-heading" hidden>
+      <div class="courtesy-detail-head"><h3 id="google-heading">Google</h3></div>
+      <ol class="courtesy-instructions">
+        <li><span class="instruction-number" aria-hidden="true">1</span><span>Abre nuestro perfil en <b>Google</b>.</span></li>
+        <li><span class="instruction-number" aria-hidden="true">2</span><span>Escribe y publica una <b>reseña</b> de tu experiencia.</span></li>
+      </ol>
+      <p class="courtesy-instruction-note">Valoramos mucho tu retroalimentación.</p>
+      <a class="courtesy-action" href="https://share.google/9RLRirDwQVqO6ub3P" target="_blank" rel="noopener noreferrer">Abrir Google ↗</a>
+      <div class="courtesy-finish"><strong>🎁 Reclama tu postre gratis</strong><p>Muestra tu reseña a una mesera y elige cualquiera de los postres disponibles.</p></div>
+    </section>
+  </section>
+</div>
+<p class="notice">Utiliza solo los pasos que necesites.</p>
+<div class="sr-only" id="copy-status" role="status" aria-live="polite"></div>
+</main>
+<script>
+(function(){
+"use strict";
+var values={beneficiario:"JOAQUIN BORJA",clabe:"012225004929940625",cuenta:"0492994062"};
+var status=document.getElementById("copy-status");
+var cards=document.querySelectorAll("details.step");
+cards.forEach(function(card){card.addEventListener("toggle",function(){if(card.open){cards.forEach(function(other){if(other!==card)other.open=false})}})});
+var courtesyState=document.getElementById("courtesy-state");
+var courtesyPanels={
+  instagram:document.getElementById("courtesy-instagram"),
+  google:document.getElementById("courtesy-google")
+};
+var courtesyButtons=document.querySelectorAll("[data-courtesy]");
+function setCourtesy(option){
+  var selected=option==="instagram"||option==="google"?option:null;
+  Object.keys(courtesyPanels).forEach(function(name){courtesyPanels[name].hidden=name!==selected});
+  courtesyButtons.forEach(function(button){
+    var active=button.dataset.courtesy===selected;
+    button.setAttribute("aria-expanded",String(active));
+    button.setAttribute("aria-pressed",String(active));
+  });
+  courtesyState.textContent=selected?"Instrucciones de "+(selected==="instagram"?"Instagram":"Google"):"Toca una opción para ver las instrucciones";
+  if(selected)cards.forEach(function(card){card.open=false});
+}
+courtesyButtons.forEach(function(button){button.addEventListener("click",function(){setCourtesy(button.dataset.courtesy)})});
+function fallbackCopy(t){var a=document.createElement("textarea");a.value=t;a.readOnly=true;a.style.cssText="position:fixed;left:-9999px;top:0;opacity:0";document.body.appendChild(a);a.focus();a.select();a.setSelectionRange(0,t.length);var ok=false;try{ok=document.execCommand("copy")}catch(e){}a.remove();return ok}
+async function copy(t){if(navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(t);return true}catch(e){}}return fallbackCopy(t)}
+document.querySelectorAll("[data-copy]").forEach(function(button){var el=button.querySelector("span");var original=el.textContent;var timer;button.addEventListener("click",async function(){var key=button.dataset.copy;var ok=await copy(values[key]);clearTimeout(timer);el.textContent=ok?"¡Copiado!":original;status.textContent=ok?"Dato copiado":"No se pudo copiar. Mantén presionado el dato y cópialo manualmente.";button.dataset.copied=ok?"true":"false";timer=setTimeout(function(){el.textContent=original;button.removeAttribute("data-copied")},2300)})});
+})();
+</script>
+</body>
+</html>
