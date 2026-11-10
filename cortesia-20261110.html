@@ -191,7 +191,7 @@ function setCourtesy(option){
   courtesyState.textContent=selected?"Instrucciones de "+(selected==="instagram"?"Instagram":"Google"):"Toca una opción para ver las instrucciones";
   if(selected)cards.forEach(function(card){card.open=false});
 }
-courtesyButtons.forEach(function(button){button.addEventListener("click",function(){setCourtesy(button.dataset.courtesy)})});
+courtesyButtons.forEach(function(button){button.addEventListener("click",function(){var option=button.dataset.courtesy;setCourtesy(courtesyPanels[option].hidden?option:null)})});
 function fallbackCopy(t){var a=document.createElement("textarea");a.value=t;a.readOnly=true;a.style.cssText="position:fixed;left:-9999px;top:0;opacity:0";document.body.appendChild(a);a.focus();a.select();a.setSelectionRange(0,t.length);var ok=false;try{ok=document.execCommand("copy")}catch(e){}a.remove();return ok}
 async function copy(t){if(navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(t);return true}catch(e){}}return fallbackCopy(t)}
 document.querySelectorAll("[data-copy]").forEach(function(button){var el=button.querySelector("span");var original=el.textContent;var timer;button.addEventListener("click",async function(){var key=button.dataset.copy;var ok=await copy(values[key]);clearTimeout(timer);el.textContent=ok?"¡Copiado!":original;status.textContent=ok?"Dato copiado":"No se pudo copiar. Mantén presionado el dato y cópialo manualmente.";button.dataset.copied=ok?"true":"false";timer=setTimeout(function(){el.textContent=original;button.removeAttribute("data-copied")},2300)})});
